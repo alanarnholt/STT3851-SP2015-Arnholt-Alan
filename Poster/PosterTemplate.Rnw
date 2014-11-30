@@ -49,7 +49,7 @@ require(xtable)
 \item On May 8, 2012, North Carolina voters approved Amendment One.  This poster examines four different models used to predict North Carolina county voting behavior.  
 \item To ensure accurate predictive power for future observations, the data are split into a training set (80\%) and a test set (20\%). 
 \item Root mean squared error of the test set is used as a measure of model adequacy.  
-\item All computations and graphs are created with the open source software \texttt{R} \cite{RC12}. 
+\item All computations and graphs are created with the open source software \texttt{R} \cite{R-base}. 
 \end{itemize}
 \vspace{0ex}
 \end{block}
@@ -58,7 +58,7 @@ require(xtable)
 %-- Block 1-2
 \begin{block}{K-Fold Cross-Validation}
 \begin{itemize}
-\item Cross validation is the simplest and most widely used method for estimating prediction error \cite{JF11}.  This method directly estimates the expected extra-sample error, $Err = E[{L(Y, \hat{f\,}\!(X))}]$.  In this work, the loss function, $L$, is the square root of the average squared error loss.
+\item Cross validation is the simplest and most widely used method for estimating prediction error \cite{JF09}.  This method directly estimates the expected extra-sample error, $Err = E[{L(Y, \hat{f\,}\!(X))}]$.  In this work, the loss function, $L$, is the square root of the average squared error loss.
 \vspace{2ex}
 \item The data in this project is split into $K=10$ equal sized parts.  The cross-validation estimate of the prediction error is $$CV(\hat{f\,}\!)=\frac{1}{N}\sum_{i=1}^{N}L(y_i, \hat{f\,}\!^{-K(i)}(x_i)),$$
 where $\hat{f\,}\!^{-K}(x)$ denotes the fitted function with the $K$\textsuperscript{th} part of the data removed.
@@ -79,7 +79,7 @@ Note: Variables are described in the Variable Table handout.
 \item Model from \cite{DE12} applied to Training data (\textcolor{blue}{mod1A}) --- Percent voting for Amendment One is modeled using the predictors pct18.24, medinc, pctb, mccain08, evanrate, pctrural, and pctba. 
 \item Our OLS model applied to Training data (\textcolor{blue}{mod1B}) --- Percent voting for Amendment One is modeled using the predictors obama08, pctrural, pctw, pctd, pctb, log(pct18.24), log(pctcolenrol), pctfm, log(pctfd), pctown,  medinc, $\text{medinc}^2$, evanrate, $\text{evanrate}^2$, pctfb, $\text{pctfb}^2$, log(pctstud), and log(colden).
 \end{enumerate}
-\item Cross validated, $K = 10$, and pruned, $n_{\text{leaves}}=4$, regression tree \cite{JF11} (\textcolor{blue}{mod2})
+\item Cross validated, $K = 10$, and pruned, $n_{\text{leaves}}=4$, regression tree \cite{JF09} (\textcolor{blue}{mod2})
 \item Random Forest built from, $n_{\text{trees}} = 5000 $, \cite{AL02} (\textcolor{blue}{mod3})
 \end{enumerate}
 \vspace{0ex}
@@ -211,7 +211,7 @@ XR <- rbind(x1, x2)
 dimnames(XR) <- list(c("Training Error", "Testing Error"), c('mod1A', 'mod1B', 'mod2', 'mod3'))
 xtable(XR, align = rep("c", 5), caption ="Training and Testing Error are the RMSE computed from a $K=10$ cross-validated model for all models except mod3.  The RMSE for the random forest model (mod3) does not use cross-validation.", label ="PT")
 @
-\vspace{-2ex}
+\vspace{0ex}
 \vfill
 \end{block}
 \vfill
@@ -223,37 +223,24 @@ xtable(XR, align = rep("c", 5), caption ="Training and Testing Error are the RMS
 \item  Use ensemble methods (combining multiple models) for better prediction.
 \item  Make our local maps available via the internet using the shiny server.
 \end{itemize}
-\vspace{-1ex}
+\vspace{0ex}
 \vfill
 \end{block}
 \vfill
 
 %-- Block 3-4
 \begin{block}{References}
-% \footnotesize
-\begin{thebibliography}{9}
+\footnotesize
 \setbeamertemplate{bibliography item}[text]
-\bibitem{RC12}
-    \texttt{R} Core Team,
-    \emph{\texttt{R}: A Language and Environment for Statistical Computing},
-    \texttt{R} Foundation for Statistical Computing,
-    Vienna, Austria, 2012,
-    \href{http://www.R-project.org}{http://www.R-project.org}.  
-\bibitem{JF11}
-    Trevor Hastie, Robert Tibshirani, and Jerome Friedman,
-    \emph{The Elements of Statistical Learning: Data Mining, Inference, 
-    and Prediction}, New York, New York, 2009.    
-\bibitem{DE12}
-Davison, E.L. and Jessica N. Eatman \emph{An Ecological Examination 
-of North Carolina's Amendment One Vote to Ban Same Sex Marriage}, 
-(In progress), 2013.
-\bibitem{AL02}
-    Andy Liaw and Matthew Wiener,
-    \emph{Classification and Regression by \texttt{randomForest}}, 
-    R News, \textbf{2}, 3, 2002, 18-22.    
-\end{thebibliography}
-\normalsize
 \vspace{-1ex}
+<<auto-bib, version=packageVersion('knitr'), echo=FALSE, cache=TRUE, message=FALSE, warning=FALSE>>=
+# write all packages in the current session to a bib file
+write_bib(c(.packages()), file = 'knitr-packages.bib')
+@
+
+\bibliographystyle{plain}
+\bibliography{knitr-packages,poster}
+\normalsize
 \vfill
 \end{block} 
 \vfill
