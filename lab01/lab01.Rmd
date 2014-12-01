@@ -1,0 +1,43 @@
+---
+title: "Lab 01"
+author: "Casper The Friendly Ghost"
+date: "Monday, December 01, 2014"
+output: html_document
+---
+
+#### Creating vectors
+
+```{r comment = NA}
+x <- c(1,3, 2, 5)
+x
+x <- c(1, 6, 2)
+y <- c(1, 4, 3)
+```
+
+#### Using `length()`
+
+```{r comment = NA}
+length(x)
+length(y)
+x + y
+z <- c(x, y)
+z
+length(z)
+```
+
+### Using `ls()`
+
+```{r comment = NA}
+ls()
+rm(x, y, z)
+ls()
+```
+
+### Creating a matrix
+
+```{r comment = NA}
+M1 <- matrix(data = 1:16, nrow = 4)
+M1  # Default is column major
+M2 <- matrix(data = 1:16, nrow = 4, byrow = TRUE)
+M2  # byrow = TRUE stores along rows instead of columns
+```
