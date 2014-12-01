@@ -34,9 +34,6 @@ head(GMD)
 ### Load the AddHealth Data
 
 ```{r comment = NA}
-site <- "https://github.com/alanarnholt/STT3851-SP2015-Arnholt-Alan/blob/master/Data/PDSdata/AddHealth/AddHealth.RData"
-library(repmis)
-AH <- source_data(site)
-dim(AH)
-AH[1:5, 1:10]
+load("../Data/PDSdata/AddHealth/AddHealth.RData")
+dim(AddHealth)
 ```
