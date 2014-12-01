@@ -24,8 +24,9 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 ### Load the Gap Minder Data
 
 ```{r comment = NA}
-site <- "https://github.com/alanarnholt/STT3851-SP2015-Arnholt-Alan/blob/master/Data/PDSdata/Gapminder/gapminder.RData"
+site <- "https://raw.githubusercontent.com/alanarnholt/STT3851-SP2015-Arnholt-Alan/master/Data/PDSdata/Gapminder/gapminder.csv"
 library(repmis)
-GMD <- source_data(site, rdata = TRUE)
+GMD <- source_data(site)
 dim(GMD)
+head(GMD)
 ```
