@@ -31,9 +31,17 @@ dim(GMD)
 head(GMD)
 ```
 
-### Load the AddHealth Data
+### Load the AddHealth Data stored locally
 
 ```{r comment = NA}
 load("../Data/PDSdata/AddHealth/AddHealth.RData")
 dim(AddHealth)
+```
+
+### Load the GapMinder Data stored on the web
+
+```{r comment = NA}
+con <- url("http://www1.appstate.edu/~arnholta/classes/PDS/DATAandCODEBOOKS/GapMinder/gapminder.RData")
+load(con)
+head(gapminder)
 ```
