@@ -54,8 +54,11 @@ To create an \verb|Items.bib|,
 \item Fifth, click \textbf{Save}.
 \end{itemize}
 
+For examples of how to cite articles with \texttt{natbib}, see the reference sheet
+\href{http://ftp.math.purdue.edu/mirrors/ctan.org/macros/latex/contrib/natbib/natnotes.pdf}{natnotes.pdf}.
 I can really talk according to \citet{beck2014} and \citet{dean2014}.
 The mean is 28 for YUMMIES \citep{murp2012}. \citet{rich2013} defines a YUMMIE as a GIDGO.
+
 
 \bibliographystyle{chicago}
 
