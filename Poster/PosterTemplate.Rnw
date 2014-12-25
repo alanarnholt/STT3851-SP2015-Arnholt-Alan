@@ -4,6 +4,7 @@
 \usepackage{amsmath, amsfonts, amssymb, pxfonts, eulervm, xspace, enumerate, hyperref, color, bookmark}
 \usepackage{graphicx}
 \usepackage[orientation=landscape, size=a0, scale=1.4, debug]{beamerposter}
+% \usepackage{natbib}
 
 \usecolortheme{rose}
 \setbeamercolor{background canvas}{bg=magenta!16!yellow!90}
@@ -238,7 +239,7 @@ xtable(XR, align = rep("c", 5), caption ="Training and Testing Error are the RMS
 write_bib(c(.packages()), file = 'knitr-packages.bib')
 @
 
-\bibliographystyle{plain}
+\bibliographystyle{plain}  % can use plain but comment out natbib at top if using plain
 \bibliography{knitr-packages,poster}
 \normalsize
 \vfill
