@@ -4,7 +4,6 @@
 \usepackage{amsmath}
 \usepackage{enumerate}
 \usepackage[round]{natbib}
-\usepackage{url}
 \usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue, linktocpage=true, breaklinks=true]{hyperref}
 
 
@@ -17,6 +16,7 @@
 
 
 
+
 The only references from your \verb|Items.bib| file that will appear at the end of a document are those that have been cited in the text.  You can use \verb|nocite| to get a full bibliography but we will not discuss that further here.  You can use the following template to create your \verb|*.Rnw| file.
 <<SETUP, engine = "bash", eval = FALSE>>=
 \documentclass{article}
@@ -24,8 +24,7 @@ The only references from your \verb|Items.bib| file that will appear at the end 
 \usepackage[utf8]{inputenc} 
 \usepackage{amsmath}
 \usepackage{enumerate}
-\usepackage{natbib}
-\usepackage{url}
+\usepackage[round]{natbib}
 \usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, 
             urlcolor=blue, linktocpage=true, breaklinks=true]{hyperref}
 
@@ -59,8 +58,7 @@ For examples of how to cite articles with \texttt{natbib}, see the reference she
 I can really talk according to \citet{beck2014} and \citet{dean2014}.
 The mean is 28 for YUMMIES \citep{murp2012}. \citet{rich2013} defines a YUMMIE as a GIDGO.
 
-
+\nocite{*}
 \bibliographystyle{jss}  % or chicago I like jss
-
-\bibliography{Items}
+\bibliography{Items,Rpkgs}
 \end{document}
