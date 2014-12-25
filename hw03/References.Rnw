@@ -59,6 +59,6 @@ I can really talk according to \citet{beck2014} and \citet{dean2014}.
 The mean is 28 for YUMMIES \citep{murp2012}. \citet{rich2013} defines a YUMMIE as a GIDGO.
 
 \nocite{*}
-\bibliographystyle{jss}  % or chicago I like jss
+\bibliographystyle{chicago}  % or chicago I like jss
 \bibliography{Items,Rpkgs}
 \end{document}
