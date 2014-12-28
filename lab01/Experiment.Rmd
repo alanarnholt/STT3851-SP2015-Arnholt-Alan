@@ -2,6 +2,7 @@
 title: "CSS works?"
 author: "Arnholt, Alan"
 date: "December 27, 2014"
+runtime: shiny
 output:
   html_document:
     fig_caption: yes
@@ -29,6 +30,22 @@ ggplot2::ggplot(data = EPIDURALF, aes(x = cm, y = kg, color = ease)) + geom_poin
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+```{r message = FALSE, fig.align='center'}
+all_values <- function(x) {
+  if(is.null(x)) return(NULL)
+  paste0(names(x), ": ", format(x), collapse = "<br />")
+}
+library(ggvis)
+EPIDURALF %>%
+  ggvis(~cm, ~kg, fill = ~ease) %>%
+  layer_points() %>%
+  group_by(ease) %>%
+  layer_model_predictions(formula = kg ~ cm, model = "lm", se = TRUE) %>%
+  add_tooltip(all_values, "hover")
+```
+
 
 Column1 |column2 | column3|
 --------|--------|---------
