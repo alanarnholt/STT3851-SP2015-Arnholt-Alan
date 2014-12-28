@@ -2,12 +2,12 @@
 title: "CSS works?"
 author: "Arnholt, Alan"
 date: "December 27, 2014"
-runtime: shiny
 output:
   html_document:
     fig_caption: yes
     highlight: textmate
     theme: readable
+runtime: shiny
 ---
 
 
@@ -26,6 +26,7 @@ You can also embed plots, for example:
 
 ```{r, echo=FALSE, warning = FALSE, fig.align='center', message = FALSE}
 library(PASWR2)
+EPIDURALF$ease <- factor(EPIDURALF$ease, levels = c("Easy", "Difficult", "Impossible"))
 ggplot2::ggplot(data = EPIDURALF, aes(x = cm, y = kg, color = ease)) + geom_point()
 ```
 
@@ -60,8 +61,42 @@ kable(head(EPIDURALF), padding = 0, align = "r")
 
 ```{r}
 library(ggvis)
+levels(EPIDURALF$ease)
 EPIDURALF %>%
- ggvis(~kg) %>%
- layer_densities(stroke:= "red", fill:= "pink", adjust = input_slider(0.1, 5)) 
+ ggvis(~kg, fill = ~ease) %>%
+ group_by(ease) %>%
+ layer_densities(stroke = ~ease, fill = ~ease,   adjust = input_slider(0.1, 5, label = "Hold Down the Mouse and Move Me"))
+```
+
+
+```{r warning = FALSE, message=FALSE, comment = NA}
+library(PASWR2)
+library(dplyr)
+xtabs(~ease, data = EPIDURALF)
+EPI <- EPIDURALF %>%
+       mutate(BMI = kg/(cm/100)^2)
+EPI$ease <- factor(EPI$ease, levels = c("Easy", "Difficult", "Impossible"))    
+head(EPI)
+xtabs(~ease, data = EPI)
+levels(EPI$ease)
+#  levels in legend shown in proper order as expected.
+EPI %>%
+  ggvis(~cm, ~kg, fill = ~ease) %>%
+  layer_points() %>%
+  group_by(ease) %>%
+  layer_model_predictions(formula = kg ~ cm, model = "lm", se = TRUE)
+# layer_boxplots() does not show levels of factor in proper order in legend (shows them alphabetically)
+EPI %>%
+  ggvis(~ease, ~BMI, fill = ~ease) %>%
+  layer_boxplots()
+# I would expect it to respect the levels of the factor as does ggplot2 below (Easy, Difficult, Impossible)
+ggplot(data = EPI, aes(x = ease, y = BMI, fill = ease)) + geom_boxplot() + theme_bw()
+# Legend does not respect levels of factor ease for layer_densities().
+EPI %>%
+ group_by(ease) %>%
+ ggvis(~BMI, fill = ~ease) %>%
+ layer_densities(stroke = ~ease, fill = ~ease)
+# I would expect the legend to appear as below (Easy, Difficult, Impossible)
+ggplot(data = EPI, aes(x = BMI, fill = ease)) + geom_density(alpha = 0.2, aes(color = ease)) + theme_bw()
 ```
 
