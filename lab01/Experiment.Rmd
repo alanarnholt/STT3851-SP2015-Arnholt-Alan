@@ -98,5 +98,22 @@ EPI %>%
  layer_densities(stroke = ~ease, fill = ~ease)
 # I would expect the legend to appear as below (Easy, Difficult, Impossible)
 ggplot(data = EPI, aes(x = BMI, fill = ease)) + geom_density(alpha = 0.2, aes(color = ease)) + theme_bw()
+#
+# library(plyr)
+# DF <- ddply(EPI, .(ease, doctor), summarize, mbmi = mean(BMI))
+# DF
+#
+# Doing the same thing with dplyr
+library(dplyr)
+DF2 <- EPI %>%
+  group_by(ease, doctor) %>%
+  summarize(mbmi = mean(BMI))
+ggplot(data = DF2, aes(x = ease, y = mbmi, fill = doctor)) + geom_bar(position = "dodge", stat = "Identity") + theme_bw()
+head(DF2)
+# ggvis attempt at Barplot now---can not get side-by-side yet...
+DF2 %>%
+  ggvis(~ease, ~mbmi, fill = ~doctor) %>%
+  group_by(ease) %>%
+  layer_bars(stack = TRUE)
 ```
 
