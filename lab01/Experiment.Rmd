@@ -56,3 +56,12 @@ library(knitr)
 library(PASWR2)
 kable(head(EPIDURALF), padding = 0, align = "r")
 ```
+
+
+```{r}
+library(ggvis)
+EPIDURALF %>%
+ ggvis(~kg) %>%
+ layer_densities(stroke:= "red", fill:= "pink", adjust = input_slider(0.1, 5)) 
+```
+
