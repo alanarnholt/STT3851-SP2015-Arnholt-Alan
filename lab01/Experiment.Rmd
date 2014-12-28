@@ -69,7 +69,7 @@ EPIDURALF %>%
 ```
 
 
-```{r warning = FALSE, message=FALSE, comment = NA}
+```{r warning = FALSE, message=FALSE, comment = NA,fig.align='center'}
 library(PASWR2)
 library(dplyr)
 xtabs(~ease, data = EPIDURALF)
