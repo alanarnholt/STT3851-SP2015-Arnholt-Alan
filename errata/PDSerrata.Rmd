@@ -1,0 +1,28 @@
+---
+title: "PDS errata"
+author: "Arnholt, Alan"
+date: "December 30, 2014"
+output: pdf_document
+---
+
+I plan to have my students use [zotero](http://www.zotero.org) instead of Endnotes as it is a free Mozilla plugin.  Instead of having the students maintain a blog, I will have them use [GitHub](http://github.com) repositories. For reproducibility, the students will do all of their work in RMarkdown.  
+
+
+1. None of the SPSS links are hot.  This may be intentional, but it leaves the reader thinking they should be as they are listed with the other software links and color coded red.
+2. The link for the R Data Management Video on page 29 goes to [http://www.wesleyan.edu/qac/curriculum/PDS/R_data_mangement.R](http://www.wesleyan.edu/qac/curriculum/PDS/R_data_mangement.R).  I believe the intended link is [https://www.youtube.com/watch?v=thGk4CUEXQ8&list=PLDEF0B9CBD27AD37E&index=53](https://www.youtube.com/watch?v=thGk4CUEXQ8&list=PLDEF0B9CBD27AD37E&index=53).
+3. The Table on page 29 for Basic Operations cell 4, 2 has `.==` for R,  it should be `==`
+4. Some part of the Ibook build is rendering the mathematics in a very ``ugly'' fashion.  Subscripts should appear as $x_1, x_2, \ldots, x_n$, etc (starts on page 40 with mean).  Sometimes subscripts are used ($\mu_1 = \mu_2 = \mu_3$) in chapter 11 and some times they are not ($\mu1 = \mu2 = \mu3$).
+5. Page 49 SPSS Univariate Graphing Handout is not hot/available.
+6. Page 51 Common Graphing Mistakes Video has an incorrect hyperlink.  I believe your intended url is [https://www.youtube.com/watch?v=iY_t31-R_xU&list=PLDEF0B9CBD27AD37E&index=25](https://www.youtube.com/watch?v=iY_t31-R_xU&list=PLDEF0B9CBD27AD37E&index=25).
+7. SPSS ANOVA video link on page 57 not hot.
+8. Need to use consistent notation on page 60.  The hypotheses in Table 11.1 should probably use a colon after $H_0$ and $H_A$ instead of an equals sign ($H_0:\mu_1 = \mu_2 = \mu_3 = \mu_4$ versus $H_A:\mu_1 \neq \mu_2 \neq \mu_3 \neq \mu_4$).  
+9. The data `frustration` does not seem to be available (page 64).  It would be helpful if the reader can reproduce the analysis using the referenced data set.
+10. Page 69, Handout: ANOVA is not hot for SPSS. The STATA and SAS handouts are stored as pdfs while the R handout is stored as *.docx.  It is probably best to store all documents as pdf.
+11. Chi-Square appears as $\chi2$ on page 68 instead of $\chi^2$.
+12. No correlation video for SPSS on page 77.
+13. The equation on page 82 for correlation is not recogniable.  It should appear as $$r=\frac{1}{n-1}\sum_{i=1}^{n}\left(\frac{x_i - \bar{x}}{S_x}\right)\left(\frac{y_i - \bar{y}}{S_y}\right)$$.
+14. No SPSS Moderation Video available (page 86).
+15. Page 93 has $b = r(SX)(SY)$.  It should be $b = r(S_X)/(S_Y)$.
+16. The link on page 109 for the CONFOUNDING AND MULTIVARIATE MODELS is not correct.  I am not sure what the correct link should be.
+17. I would use the spelling aesthetically instead of esthetically (page 112).
+
