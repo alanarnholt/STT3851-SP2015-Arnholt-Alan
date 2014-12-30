@@ -25,4 +25,5 @@ I plan to have my students use [zotero](http://www.zotero.org) instead of Endnot
 15. Page 93 has $b = r(SX)(SY)$.  It should be $b = r(S_X)/(S_Y)$.
 16. The link on page 109 for the CONFOUNDING AND MULTIVARIATE MODELS is not correct.  I am not sure what the correct link should be.
 17. I would use the spelling aesthetically instead of esthetically (page 112).
+18. Page 67,68, 76, and 85 p-values are written p = 0001...they should be p < 0.0001.
 
